@@ -1,0 +1,27 @@
+---
+import { Image } from 'astro:assets';
+import Logo from '/public/a.svg'
+
+const navLinks = [
+{id: 1, name : 'Intro', url :"/"},
+{id: 2, name : 'About', url : "/about"},
+{id: 3, name : 'Work', url: "/work"},
+{id: 4, name : 'Blog', url : "/blog"},
+{id: 5, name : 'Contact', url: "/contact"},
+]
+---
+
+<nav class=" text-white py-5 absolute w-full">
+    <div class="flex justify-between items-center">
+        <figure class="cursor-pointer">
+            <Image src={Logo} alt="Logo">
+        </figure>
+    <div class="hidden md:block">
+        <ul class="flex gap-4">
+            { navLinks.map((link)=> <li>
+                {link.name}
+                </li>  )}
+        </ul>
+    </div>
+    </div>
+</nav>

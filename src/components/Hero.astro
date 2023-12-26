@@ -1,0 +1,110 @@
+---
+import { Image } from "astro:assets";
+import Button from "./Button.astro"
+import type { Icons } from "./Icons";
+
+const iconLinks: { label: string; href: string; icon: keyof typeof Icons }[] = [
+	{ label: 'Twitter', href: 'https://twitter.com/me', icon: 'twitter' },
+	{ label: 'GitHub', href: 'https://github.com/me', icon: 'github' },
+	{ label: 'LinkedIn', href: 'https://linkedin.com/me', icon: 'linkedIn' },
+	{ label: 'Instagram', href: 'https://instagram.com/me', icon: 'instagram' },
+];
+
+---
+
+<div class="h-screen flex justify-center items-center">
+    <div class="max-w-6xl text-center">
+        <div class="text-white heads">
+           <span class="headings">
+            <span>creative</span>
+            <span class="subheading">front-end dev</span>
+            <span>focusing on digital experiences</span>
+           </span>
+        </div>
+        <div class="flex justify-center items-center md:flex-row flex-col my-4 gap-5 mx-10 md:mx-0">
+            <Button title="Contact me" href="mailto:amangouakcouange@gmail.com" active/>
+            <Button title="Download my resume" href='/resume.pdf'  />
+        </div>
+        <div class="flex text-center items-center gap-3 absolute -translate-x-1/2 left-1/2 bottom-10 text-white">
+            <p>Follow me</p>
+            <div class="rectangle"></div>
+            <ul class="flex">
+                {iconLinks.map(item=> 
+                <li>
+                    <a href={item.href}> 
+                      {item.icon}
+                        </a>
+                </li>)
+                }
+            </ul>
+        </div>
+    </div>
+</div>
+
+<style>
+
+@media (min-width: 1200px){
+.headings{
+    font-size: var(--text-6xl);
+    font-weight: 600;
+    line-height: 1;
+}
+.subheading{
+    font-family: var(--font-variable);
+    font-size: var(--text-6xl);
+    font-weight: 400;
+}
+.rectangle{
+    width: 50px;
+    height: 1px;
+    background-color: white;
+}
+h5{
+    font-size: 20px;
+    line-height: 1;
+}
+li a {
+    font-size: 10px;
+}
+}
+
+@media (min-width: 761px) and (max-width:1196px){
+.headings{
+    font-size: var(--text-4xl);
+    line-height: 1;
+}
+}
+
+@media (max-width: 760px) { 
+.headings{
+    font-size: var(--text-2xl);
+    font-weight: 600;
+    line-height: 1;
+}
+.subheading{
+    font-family: var(--font-variable);
+    font-size: var(--text-3xl);
+    font-weight: 400;
+}
+
+.rectangle{
+    width: 50px;
+    height: 1px;
+    background-color: white;
+}
+h5{
+    font-size: 20px;
+    line-height: 1;
+}
+
+li a {
+    font-size: 10px;
+}
+}
+
+</style>
+
+
+<script>
+    gsap.to(".headings", { x: '1000' });
+</script>
