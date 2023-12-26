@@ -1,6 +1,6 @@
 import { BsMoonStarsFill } from "react-icons/bs";
 import { TbArrowsCross } from "react-icons/tb";
-
+import { motion } from "framer-motion";
 import { useState } from "react";
 import { useMediaQuery } from "../utils/useMediaQuery";
 
@@ -12,6 +12,24 @@ const navLinks = [
   { id: 4, name: "Contact", link: "#" },
 ];
 
+const navMotion = {
+  visible: {
+    opacity: 1,
+    transition: {
+      when: "beforeChildren",
+      staggerChildren: 0.05,
+    },
+  },
+  hidden: {
+    opacity: 0,
+  },
+};
+
+const itemMotion = {
+  visible: { opacity: 1, y: 0 },
+  hidden: { opacity: 0, y: 100 },
+};
+
 export const Nav = () => {
   const Logo = "a.svg";
   const [toggled, setToggled] = useState(false);
@@ -19,8 +37,6 @@ export const Nav = () => {
 
   function handleToggled() {
     setToggled((prev) => !prev);
-    let tl = gsap.timeline({ repeat: 3 });
-    tl.from(".links", { duration: 1, opacity: 0, y: 100, stagger: 0.6 });
   }
   return (
     <nav
@@ -61,18 +77,24 @@ export const Nav = () => {
       </div>
       {toggled && (
         <div className="h-screen fixed bottom-0 left-0 w-full flex justify-center items-center z-30 bg-[#140a0a]">
-          <ul className="flex justify-center flex-col gap-5 items-center">
+          <motion.ul
+            variants={navMotion}
+            animate="visible"
+            initial="hidden"
+            className="flex justify-center flex-col gap-5 items-center"
+          >
             {navLinks.map((link) => (
-              <li
+              <motion.li
+                variants={itemMotion}
                 className="text-2xl lg:text-4xl text-white font-semibold"
                 key={link.id}
               >
                 <a href={link.link} className="links">
                   {link.name}
                 </a>
-              </li>
+              </motion.li>
             ))}
-          </ul>
+          </motion.ul>
         </div>
       )}
     </nav>
