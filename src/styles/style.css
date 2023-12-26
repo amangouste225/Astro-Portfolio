@@ -12,7 +12,7 @@
     /* Text Sizes */
     --text-sm: 0.875rem;
     --text-base: 1rem;
-    --text-md: 1.125rem;
+    --text-md: 1rem;
     --text-lg: 1.25rem;
     --text-xl: 1.625rem;
     --text-2xl: 2.125rem;
@@ -71,5 +71,4 @@ html {
     margin-inline: auto;
     margin: 0 auto;
     position: relative;
-    padding: 5px;
 }
