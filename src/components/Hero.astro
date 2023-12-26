@@ -2,15 +2,14 @@
 import { Image } from "astro:assets";
 import Button from "./Button.astro"
 import { Icon } from "astro-icon";
-
 ---
 
 <div class="lg:h-screen h-[60vh]  flex justify-center relative py-">
-    <div class="max-w-5xl text-center flex flex-col justify-center items-center h-full relative texte">
+    <div class="max-w-4xl text-center flex flex-col justify-center items-center h-full relative texte">
         <div class="text-white items-center	">
            <span class="lg:text-5xl md:text-4xl sm:text-3xl text-2xl leading-none font-medium">
             <span>creative</span>
-            <span class="font-display relative lg:text-6xl sm:text-4xl text-3xl">front-end
+            <span class="font-display relative lg:text-6xl sm:text-4xl text-3xl" id="fronte">front-end
                  <svg viewBox="0 0 550 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" class="icons absolute bottom-2 left-0"><path d="M2.00024 1.5C14.5002 19.5 34.5 21 60.5 10C102.864 -7.92334 154.649 17.7997 200 17.5C267.5 17.0539 294.186 7.58925 337 5C379.814 2.41075 402.484 20.6688 445 15C482.5 10 495 10 510.5 13.5C526 17 545.5 15 548.5 2" stroke-linecap="round"></path></svg>
             </span>
            
@@ -19,7 +18,7 @@ import { Icon } from "astro-icon";
         </div>
         <div class="flex justify-center items-center md:flex-row flex-col mt-10 gap-5 mx-10 md:mx-0">
             <Button title="Contact me" href="mailto:amangouakcouange@gmail.com" active/>
-            <Button title="Download my resume" href='/resume.pdf'  />
+            <Button title="Download my resume" href='/portfolio.png'  />
         </div>
         <div class="gap-2 font-medium text-gray-200 absolute bottom-12 flex justify-center items-center">
             <p>Follow me</p>
@@ -42,5 +41,5 @@ import { Icon } from "astro-icon";
 </style>
 
 <script>
-    gsap.from('.texte div',{y:100, duration:1,opacity:0, ease : 'back', stagger:0.2})
+
 </script>
