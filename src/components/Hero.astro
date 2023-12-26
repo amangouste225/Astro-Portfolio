@@ -5,12 +5,12 @@ import { Icon } from "astro-icon";
 
 ---
 
-<div class="h-screen flex justify-center relative">
-    <div class="max-w-5xl text-center flex flex-col justify-center items-center h-full relative">
+<div class="lg:h-screen h-[60vh]  flex justify-center relative py-">
+    <div class="max-w-5xl text-center flex flex-col justify-center items-center h-full relative texte">
         <div class="text-white items-center	">
-           <span class="headings">
+           <span class="lg:text-5xl md:text-4xl sm:text-3xl text-2xl leading-none font-medium">
             <span>creative</span>
-            <span class="subheading relative">front-end
+            <span class="font-display relative lg:text-6xl sm:text-4xl text-3xl">front-end
                  <svg viewBox="0 0 550 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" class="icons absolute bottom-2 left-0"><path d="M2.00024 1.5C14.5002 19.5 34.5 21 60.5 10C102.864 -7.92334 154.649 17.7997 200 17.5C267.5 17.0539 294.186 7.58925 337 5C379.814 2.41075 402.484 20.6688 445 15C482.5 10 495 10 510.5 13.5C526 17 545.5 15 548.5 2" stroke-linecap="round"></path></svg>
             </span>
            
@@ -21,9 +21,9 @@ import { Icon } from "astro-icon";
             <Button title="Contact me" href="mailto:amangouakcouange@gmail.com" active/>
             <Button title="Download my resume" href='/resume.pdf'  />
         </div>
-        <div class="gap-2 font-medium absolute bottom-12 social flex justify-center items-center">
+        <div class="gap-2 font-medium text-gray-200 absolute bottom-12 flex justify-center items-center">
             <p>Follow me</p>
-            <div class="rectangle flex-1"></div>
+            <div class="w-10 bg-gray-200 h-[1px] flex-1"></div>
             <div class="flex gap-4">
                 <Icon name="mdi:linkedin" class='w-5 cursor-pointer hover:text-yellow-200 hover:scale-150' />
                 <Icon name="mdi:twitter" class='w-5 cursor-pointer hover:text-yellow-200 hover:scale-150' />
@@ -35,72 +35,12 @@ import { Icon } from "astro-icon";
 </div>
 
 <style>
-
 .icons{
     stroke: yellow;
      stroke-width: 2%;
 }
-
-.social{
-    width: 300px;
-    color: var(--gray500);
-}
-.rectangle{
-    max-width: 30px;
-    height: 2px;
-    background-color: var(--gray500);
-
-}
-  
-@media (min-width: 1200px){
-.headings{
-    font-size: var(--text-6xl);
-    font-weight: 600;
-    line-height: 1;
-}
-.subheading{
-    font-family: var(--font-variable);
-    font-size: var(--text-6xl);
-    font-weight: 400;
-}
-
-h5{
-    font-size: 20px;
-    line-height: 1;
-}
-li a {
-    font-size: 10px;
-}
-}
-
-@media (min-width: 761px) and (max-width:1196px){
-.headings{
-    font-size: var(--text-4xl);
-    line-height: 1;
-}
-
-
-}
-
-@media (max-width: 760px) { 
-.headings{
-    font-size: var(--text-3xl);
-    font-weight: 600;
-    line-height: 1;
-}
-.subheading{
-    font-family: var(--font-variable);
-    font-size: var(--text-4xl);
-    font-weight: 400;
-}
-
-h5{
-    font-size: 20px;
-    line-height: 1;
-}
-
-li a {
-    font-size: 10px;
-}
-}
 </style>
+
+<script>
+    gsap.from('.texte div',{y:100, duration:1,opacity:0, ease : 'back', stagger:0.2})
+</script>

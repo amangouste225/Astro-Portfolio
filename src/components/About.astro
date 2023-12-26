@@ -1,18 +1,30 @@
 ---
+import Button from "./Button.astro";
 
 ---
 
-<div class="my-5 flex justify-around">
-    <figure class="max-w-md">
-      <img src="/ange.jpeg" alt="ange">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-10 max-w-5xl mx-auto items-center my-10 md:my-[100px]">
+    <figure class="md:max-w-sm">
+      <img src="/ange.jpeg" alt="ange" class="ange">
     </figure>
-
-    <div>
-       <div>
-        <h2>
-            More about me
+    <div class='justify-start'>
+       <div class="text-white leading-none">
+        <h2 class="text-2xl lg:text-4xl font-medium">
+            a brief
+             <span class="text-4xl lg:text-5xl font-display font-light">discovery</span>
+             on me.
         </h2>
+        <p class="my-5 text-p lg:text-lg leading-tight  pb-2 lg:pb-10">We believe that the human dimensions essential to start any successful project and that this is where splendid emotional relationships between the company and people are born.
+           <br> <br>
+            Intuition and strategy integrate the research methodology that we also apply to traditional media.
+        </p>
+        <Button title="Contact me" href="mailto"/>
        </div>
 
     </div>
 </div>
+
+
+<script>
+    gsap.fromTo('.ange', {duration : 2, y: 1000 },{yoyo:true,y:0, ease:'back'})
+</script>
