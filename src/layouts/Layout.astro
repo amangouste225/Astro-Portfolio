@@ -2,7 +2,6 @@
 import MainHead from '../components/MainHead.astro';
 import Footer from '../components/Footer.astro';
 import Header from '../components/Header.astro';
-import LocomotiveScroll from "locomotive-scroll";
 
 interface Props {
 	title: string;
@@ -37,10 +36,5 @@ if (
 } else {
   document.documentElement.classList.remove("dark");
 }
-
-const scroll = new LocomotiveScroll({
-  el: document.querySelector("[data-scroll-container]"),
-  smooth: true,
-});
 
 </script>
