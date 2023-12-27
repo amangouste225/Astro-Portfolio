@@ -1,0 +1,29 @@
+---
+import type { CollectionEntry } from 'astro:content';
+
+interface Props {
+	project: CollectionEntry<'works'>;
+}
+
+const { data, slug } = Astro.props.project;
+---
+
+<li>
+<a class="place-self-center	inline-block max-w-sm md:max-w-md lg:max-w-lg" href={`/work/${slug}`}  >
+	<img src={data.img} alt={data.img_alt || 'Z'} class="mb-6" />
+	<div class="flex justify-between">
+	<span class="text-xl font-bold">{data.title}</span>
+	</div>
+</a>
+
+</li>
+
+<style>
+
+@media (min-width: 1024px) {
+li:nth-child(2n){
+margin-top: 150px;
+}	
+}
+
+</style>

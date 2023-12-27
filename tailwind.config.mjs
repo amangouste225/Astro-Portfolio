@@ -23,7 +23,7 @@ export default {
         md: "1rem",
         lg: "1.25rem",
         xl: "1.75rem",
-        "2xl": "2.25rem",
+        "2xl": "2rem",
         "3xl": "2.75rem",
         "4xl": "3.25rem",
         "5xl": "3.75rem",

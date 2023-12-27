@@ -8,4 +8,4 @@ interface Props{
 const {title,active, href } = Astro.props
 ---
 
-<a href={href} target="_blank" class={`${active ? 'text-white bg-black md:inline-block' : 'text-black dark:text-white bg-white dark:bg-black'} md:text-md font-semibold text-p px-10 py-2 md:px-10 md:py-3 rounded-full`}>{title}</a>
+<a href={href} target="_blank" class={`${active ? 'text-white bg-black border dark:bg-white dark:text-black md:inline-block' : 'text-black dark:text-white border bg-white dark:bg-black'} md:text-md font-semibold text-p px-10 py-2 md:px-10 md:py-3 rounded-full`}>{title}</a>

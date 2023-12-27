@@ -2,6 +2,7 @@
 import MainHead from '../components/MainHead.astro';
 import Footer from '../components/Footer.astro';
 import Header from '../components/Header.astro';
+import LocomotiveScroll from "locomotive-scroll";
 
 interface Props {
 	title: string;
@@ -22,3 +23,24 @@ const { title } = Astro.props;
 		</div>
 	</body>
 </html>
+
+
+<script>
+
+
+if (
+  localStorage.getItem("color-theme") === "dark" ||
+  (!("color-theme" in localStorage) &&
+    window.matchMedia("(prefers-color-scheme: dark)").matches)
+) {
+  document.documentElement.classList.add("dark");
+} else {
+  document.documentElement.classList.remove("dark");
+}
+
+const scroll = new LocomotiveScroll({
+  el: document.querySelector("[data-scroll-container]"),
+  smooth: true,
+});
+
+</script>

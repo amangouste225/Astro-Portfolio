@@ -1,6 +1,6 @@
 ---
 const Logo = './a.svg'
-
+import LocomotiveScroll from 'locomotive-scroll';
 export const navLinks = [
   { id: 1, name: "Intro", link: "#" },
   { id: 2, name: "About", link: "#" },
@@ -10,29 +10,28 @@ export const navLinks = [
 ]
 
 ---
-      <div class="absolute w-full z-50 text-white dark:text-black py-5 px-5">
+      <div class="md:h-auto h-screen text-center md:text-left fixed w-full max-w-6xl z-50 text-white dark:text-black py-5 px-5">
         <div class="flex justify-between items-center">
-          <figure class="w-[175px]" >
+          <figure class="md:w-[160px] w-[150px]" >
             <img src={Logo} alt="Logo" class="dark:invert"/>
           </figure>
           
           <div class="flex items-center">
-            <div class="md:flex items-center gap-3 hidden cursor-pointer light" id="theme-toggle">
-              <span class="font-medium">Turn on the lights !</span>
+            <div class="md:flex md:relative fixed top-1/2 translate-x-1/2 right-8 md:-translate-x-0 w-[250px] flex md:flex-row flex-row-reverse md:w-auto rotate-90 md:rotate-0 -translate-y-1/2 md:-translate-y-0 overflow-hidden items-center gap-3 cursor-pointer light" id="theme-toggle">
+              <span id="turnon" class="font-medium">Turn on the lights !</span>
               <button  type="button" class=" border-none rounded-full bg-white dark:bg-black text-sm p-2 flex">
-                 
-  <svg id="lights" class="hidden w-4 h-4 text-black dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 20">
+                  <svg id="lights" class="hidden w-4 h-4 text-black dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 20">
     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.509 5.75c0-1.493.394-2.96 1.144-4.25h-.081a8.5 8.5 0 1 0 7.356 12.746A8.5 8.5 0 0 1 8.509 5.75Z"/>
-  </svg>
+                  </svg>
   
-  <svg id ="darks" class="hidden w-4 h-4 text-white  dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
+                  <svg id ="darks" class="hidden w-4 h-4 text-white  dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 3V1m0 18v-2M5.05 5.05 3.636 3.636m12.728 12.728L14.95 14.95M3 10H1m18 0h-2M5.05 14.95l-1.414 1.414M16.364 3.636 14.95 5.05M14 10a4 4 0 1 1-8 0 4 4 0 0 1 8 0Z"/>
-  </svg>
+                  </svg>
   
               </button>
             </div>
             <div>
-                <div class="ml-10 grid grid-cols-2 gap-2 max-w-[30px] cursor-pointer">
+                <div class="ml-0 grid grid-cols-2 gap-2 max-w-[20px] cursor-pointer">
                   <span class="block h-2 w-2 bg-white dark:bg-black rounded-full"></span>
                   <span class="block h-2 w-2 bg-white dark:bg-black rounded-full"></span>
                   <span class="block h-2 w-2 bg-white dark:bg-black rounded-full"></span>
@@ -45,9 +44,11 @@ export const navLinks = [
     </nav>
 
 <script>
+
+
 var themeToggleDarkIcon = document.querySelector('#lights');
 var themeToggleLightIcon = document.querySelector('#darks');
-
+var turnon = document.querySelector('#turnon')
 // Change the icons inside the button based on previous settings
 if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
     themeToggleLightIcon?.classList.remove('hidden');
@@ -64,9 +65,14 @@ themeToggleBtn?.addEventListener('click', function() {
         if (localStorage.getItem('color-theme') === 'light') {
             document.documentElement.classList.add('dark');
             localStorage.setItem('color-theme', 'dark');
+            turnon.innerHTML = 'Turn off the lights !'
+            gsap.fromTo('#turnon', { opacity:0, y:30, duration:0.5}, {y:0, opacity:1})
         } else {
             document.documentElement.classList.remove('dark');
             localStorage.setItem('color-theme', 'light');
+            turnon.innerHTML = 'Turn on the lights !'
+            gsap.fromTo('#turnon', { opacity:0, y:30, duration:0.5}, {y:0, opacity:1})
+
         }
     } else {
         if (document.documentElement.classList.contains('dark')) {
