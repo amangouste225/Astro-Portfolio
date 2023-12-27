@@ -9,14 +9,14 @@ import { FiArrowDownRight } from "react-icons/fi";
 
 ---
 
-<li class="relative group ease-in-out duration-150 border-none"> 
-<a class="place-self-center inline-block" id="contain" href={data.github} target="_blank" rel="noopener noreferrer">
-	<img src={data.img} alt={data.img_alt || 'Z'} class="group-hover:brightness-[0.15] ease-in-out duration-150 brightness-[1]"/>
-	<div class="flex justify-between mt-5 items-center">
+<li class="relative group ease-in-out duration-150 border-none overflow-hidden group p-1"> 
+<a class="place-self-center inline-block" id="contain" href={data.github} target="_blank" rel="noopener noreferrer" type="button">
+	<img src={data.img} alt={data.img_alt || 'Z'} class="group-hover:brightness-[0.15] brightness-[1]"/>
+<div class="flex justify-between mt-5 items-center translate-y-[50px] group-hover:translate-y-0 ease-in-out duration-150" >
 		<div class="text-lg font-extrabold flex gap-2">{data.title}</div>
 		<div class="flex gap-2">
-			<a href={data.github} class="font-display text-lg flex dark:bg-black dark:text-white bg-white text-black rounded-xl px-5 py-1 outline-1 border-none hover:bg-transparent hover:outline hover:text-white hover:dark:text-black" target="_blank" rel="noopener noreferrer"> <span>github</span> <GoArrowUpRight /></a>
-			<a href={data.github} class="font-display text-lg flex dark:bg-black dark:text-white bg-white text-black rounded-xl px-5 py-1 outline-1 border-none hover:bg-transparent hover:outline hover:text-white hover:dark:text-black" target="_blank" rel="noopener noreferrer"> <span>live</span> <FiArrowDownRight /></a>
+			<a href={data.github} class="font-display text-lg font-bold flex dark:bg-black dark:text-white bg-white text-black rounded-xl px-5 py-1 outline-1 border-none hover:bg-transparent hover:outline hover:text-white hover:dark:text-black" type="button" target="_blank" rel="noopener noreferrer"> <span>github</span> <GoArrowUpRight /></a>
+			<a href={data.github} class="font-display text-lg font-bold flex dark:bg-black dark:text-white bg-white text-black rounded-xl px-5 py-1 outline-1 border-none hover:bg-transparent hover:outline hover:text-white hover:dark:text-black" type="button" target="_blank" rel="noopener noreferrer"> <span>live</span> <FiArrowDownRight /></a>
 		</div>
 	</div>
 </a>
