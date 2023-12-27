@@ -9,11 +9,11 @@ interface Props {
 
 const { title } = Astro.props;
 ---
-<html lang="en">
+<html lang="en" class="">
 	<head>
 	<MainHead title={title} />
 	</head>
-	<body>
+	<body class="bg-black dark:bg-white">
 		<div class="wrapper">
 			<slot />
 			<Footer />

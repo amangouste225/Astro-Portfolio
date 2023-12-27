@@ -8,7 +8,7 @@
     --gray600: hsl(0, 0%, 55%);
     --gray700: hsl(0, 0%, 51%);
     --gray800: hsl(0, 0%, 39%);
-    --gray900: hsl(0, 0%, 13%);
+    --gray900: hsl(0, 0%, 0%);
     /* Text Sizes */
     --text-sm: 0.875rem;
     --text-base: 1rem;
@@ -41,7 +41,7 @@
     --gray600: hsl(0, 0%, 55%);
     --gray700: hsl(0, 0%, 51%);
     --gray800: hsl(0, 0%, 39%);
-    --gray900: hsl(0, 0%, 13%);
+    --gray900: hsl(0, 0%, 100%);
 
     /* Fonts */
 
@@ -61,13 +61,9 @@
 
 body,
 html {
-    background-color: #000000;
     scroll-behavior: smooth;
 }
 
-p {
-    color: rgba(255, 255, 255, .7);
-}
 
 .wrapper {
     width: 100%;
