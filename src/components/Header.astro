@@ -17,9 +17,9 @@ export const navLinks = [
           </figure>
           
           <div class="flex items-center">
-            <div class="md:flex items-center gap-3 hidden cursor-pointer light">
+            <div class="md:flex items-center gap-3 hidden cursor-pointer light" id="theme-toggle">
               <span class="font-medium">Turn on the lights !</span>
-              <button id="theme-toggle" type="button" class=" border-none rounded-full bg-white dark:bg-black text-sm p-2 flex">
+              <button  type="button" class=" border-none rounded-full bg-white dark:bg-black text-sm p-2 flex">
                  
   <svg id="lights" class="hidden w-4 h-4 text-black dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 20">
     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.509 5.75c0-1.493.394-2.96 1.144-4.25h-.081a8.5 8.5 0 1 0 7.356 12.746A8.5 8.5 0 0 1 8.509 5.75Z"/>
@@ -43,8 +43,6 @@ export const navLinks = [
         </div>
       </div>
     </nav>
-
-
 
 <script>
 var themeToggleDarkIcon = document.querySelector('#lights');

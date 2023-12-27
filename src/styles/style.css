@@ -1,69 +1,15 @@
-:root {
-    /* Colors */
-    --gray100: hsl(0, 0%, 99%);
-    --gray200: hsl(0, 0%, 98%);
-    --gray300: hsl(0, 0%, 91%);
-    --gray400: hsl(0, 0%, 88%);
-    --gray500: hsl(0, 0%, 81%);
-    --gray600: hsl(0, 0%, 55%);
-    --gray700: hsl(0, 0%, 51%);
-    --gray800: hsl(0, 0%, 39%);
-    --gray900: hsl(0, 0%, 0%);
-    /* Text Sizes */
-    --text-sm: 0.875rem;
-    --text-base: 1rem;
-    --text-md: 1rem;
-    --text-lg: 1.25rem;
-    --text-xl: 1.625rem;
-    --text-2xl: 2.125rem;
-    --text-3xl: 2.625rem;
-    --text-4xl: 3.625rem;
-    --text-6xl: 4.5rem;
-    --text-5xl: 5rem;
-    --text-6xl: 6rem;
-
-    /* Fonts */
-
-    --font-system: 'Inter', sans-serif;
-    --font-body: var(--font-system);
-    --font-brand: var(--font-system);
-    --font-variable: 'Caveat', cursive;
-    /* Transitions */
-    --theme-transition: 0.2s ease-in-out;
-}
-
-:root.theme-dark {
-    --gray100: hsl(0, 0%, 99%);
-    --gray200: hsl(0, 0%, 98%);
-    --gray300: hsl(0, 0%, 91%);
-    --gray400: hsl(0, 0%, 88%);
-    --gray500: hsl(0, 0%, 81%);
-    --gray600: hsl(0, 0%, 55%);
-    --gray700: hsl(0, 0%, 51%);
-    --gray800: hsl(0, 0%, 39%);
-    --gray900: hsl(0, 0%, 100%);
-
-    /* Fonts */
-
-    --font-system: 'Inter', sans-serif;
-    --font-body: var(--font-system);
-    --font-brand: var(--font-system);
-    --font-variable: 'Caveat', cursive;
-    /* Transitions */
-    --theme-transition: 0.2s ease-in-out;
-}
-
 * {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+
 }
 
-body,
-html {
+html,
+body {
     scroll-behavior: smooth;
+    transition: background 0.5s ease-in-out;
 }
-
 
 .wrapper {
     width: 100%;
