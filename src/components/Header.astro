@@ -1,8 +1,7 @@
 ---
-import {motion} from 'framer-motion'
+const Logo = './a.svg'
 
-
-const navLinks = [
+export const navLinks = [
   { id: 1, name: "Intro", link: "#" },
   { id: 2, name: "About", link: "#" },
   { id: 3, name: "Work", link: "#" },
@@ -10,76 +9,76 @@ const navLinks = [
   { id: 4, name: "Contact", link: "#" },
 ]
 
-const navMotion = {
-  visible: {
-    opacity: 1,
-    transition: {
-      when: "beforeChildren",
-      staggerChildren: 0.05,
-    },
-  },
-  hidden: {
-    opacity: 0,
-  },
-};
-
-const itemMotion = {
-  visible: { opacity: 1, y: 0 },
-  hidden: { opacity: 0, y: 100 },
-};
 ---
-
-      <div class="absolute w-full z-50 text-white py-5 px-5">
+      <div class="absolute w-full z-50 text-white dark:text-black py-5 px-5">
         <div class="flex justify-between items-center">
-          <a class="w-[175px]" href="/">
-            <img src={Logo} alt="Logo" />
-          </a>
+          <figure class="w-[175px]" >
+            <img src={Logo} alt="Logo" class="dark:invert"/>
+          </figure>
+          
           <div class="flex items-center">
-            <div class="md:flex items-center gap-3 hidden cursor-pointer">
-              <span class="font-medium ">Turn on the lights !</span>
-              <div class="h-8 w-8 rounded-full bg-gray-700 md:flex justify-center items-center">
-                <BsMoonStarsFill />
-              </div>
+            <div class="md:flex items-center gap-3 hidden cursor-pointer light">
+              <span class="font-medium">Turn on the lights !</span>
+              <button id="theme-toggle" type="button" class=" border-none rounded-full bg-white dark:bg-black text-sm p-2 flex">
+                 
+  <svg id="lights" class="hidden w-4 h-4 text-black dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 20">
+    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.509 5.75c0-1.493.394-2.96 1.144-4.25h-.081a8.5 8.5 0 1 0 7.356 12.746A8.5 8.5 0 0 1 8.509 5.75Z"/>
+  </svg>
+  
+  <svg id ="darks" class="hidden w-4 h-4 text-white  dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
+    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 3V1m0 18v-2M5.05 5.05 3.636 3.636m12.728 12.728L14.95 14.95M3 10H1m18 0h-2M5.05 14.95l-1.414 1.414M16.364 3.636 14.95 5.05M14 10a4 4 0 1 1-8 0 4 4 0 0 1 8 0Z"/>
+  </svg>
+  
+              </button>
             </div>
-            <div class="" onClick={handleToggled}>
-              {!toggled ? (
+            <div>
                 <div class="ml-10 grid grid-cols-2 gap-2 max-w-[30px] cursor-pointer">
-                  <span class="block h-2 w-2 bg-white rounded-full"></span>
-                  <span class="block h-2 w-2 bg-white rounded-full"></span>
-                  <span class="block h-2 w-2 bg-white rounded-full"></span>
-                  <span class="block h-2 w-2 bg-white rounded-full"></span>
+                  <span class="block h-2 w-2 bg-white dark:bg-black rounded-full"></span>
+                  <span class="block h-2 w-2 bg-white dark:bg-black rounded-full"></span>
+                  <span class="block h-2 w-2 bg-white dark:bg-black rounded-full"></span>
+                  <span class="block h-2 w-2 bg-white dark:bg-black rounded-full"></span>
                 </div>
-              ) : (
-                <div class="ml-10 cursor-pointer">
-                  <TbArrowsCross size="25" />
-                </div>
-              )}
             </div>
           </div>
         </div>
       </div>
-      {toggled && (
-        <div class="h-screen fixed bottom-0 left-0 w-full flex justify-center items-center z-30 bg-[#140a0a]">
-          <motion.ul
-            variants={navMotion}
-            animate="visible"
-            initial="hidden"
-            class="flex justify-center flex-col gap-5 items-center"
-          >
-            {navLinks.map((link) => (
-              <motion.li
-                variants={itemMotion}
-                class="text-2xl lg:text-4xl text-white font-semibold"
-                key={link.id}
-              >
-                <a href={link.link} class="links">
-                  {link.name}
-                </a>
-              </motion.li>
-            ))}
-          </motion.ul>
-        </div>
-      )}
     </nav>
-  );
-};
+
+
+
+<script>
+var themeToggleDarkIcon = document.querySelector('#lights');
+var themeToggleLightIcon = document.querySelector('#darks');
+
+// Change the icons inside the button based on previous settings
+if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+    themeToggleLightIcon?.classList.remove('hidden');
+} else {
+    themeToggleDarkIcon?.classList.remove('hidden');
+}
+
+var themeToggleBtn = document.querySelector('#theme-toggle');
+
+themeToggleBtn?.addEventListener('click', function() {
+    themeToggleDarkIcon?.classList.toggle('hidden');
+    themeToggleLightIcon?.classList.toggle('hidden');
+    if (localStorage.getItem('color-theme')) {
+        if (localStorage.getItem('color-theme') === 'light') {
+            document.documentElement.classList.add('dark');
+            localStorage.setItem('color-theme', 'dark');
+        } else {
+            document.documentElement.classList.remove('dark');
+            localStorage.setItem('color-theme', 'light');
+        }
+    } else {
+        if (document.documentElement.classList.contains('dark')) {
+            document.documentElement.classList.remove('dark');
+            localStorage.setItem('color-theme', 'light');
+        } else {
+            document.documentElement.classList.add('dark');
+            localStorage.setItem('color-theme', 'dark');
+        }
+    }
+});
+
+</script>
