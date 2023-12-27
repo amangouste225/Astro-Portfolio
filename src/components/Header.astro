@@ -1,6 +1,5 @@
 ---
 const Logo = './a.svg'
-import LocomotiveScroll from 'locomotive-scroll';
 export const navLinks = [
   { id: 1, name: "Intro", link: "#" },
   { id: 2, name: "About", link: "#" },
@@ -8,7 +7,6 @@ export const navLinks = [
   { id: 4, name: "Blog", link: "#" },
   { id: 4, name: "Contact", link: "#" },
 ]
-
 ---
       <div class="md:h-auto h-screen text-center md:text-left fixed w-full max-w-6xl z-50 text-white dark:text-black py-5 px-5">
         <div class="flex justify-between items-center">
@@ -42,13 +40,11 @@ export const navLinks = [
         </div>
       </div>
     </nav>
-
 <script>
 
 
 var themeToggleDarkIcon = document.querySelector('#lights');
 var themeToggleLightIcon = document.querySelector('#darks');
-var turnon = document.querySelector('#turnon')
 // Change the icons inside the button based on previous settings
 if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
     themeToggleLightIcon?.classList.remove('hidden');
@@ -61,18 +57,18 @@ var themeToggleBtn = document.querySelector('#theme-toggle');
 themeToggleBtn?.addEventListener('click', function() {
     themeToggleDarkIcon?.classList.toggle('hidden');
     themeToggleLightIcon?.classList.toggle('hidden');
+    var turnon = document.querySelector('#turnon')
+
     if (localStorage.getItem('color-theme')) {
         if (localStorage.getItem('color-theme') === 'light') {
             document.documentElement.classList.add('dark');
             localStorage.setItem('color-theme', 'dark');
             turnon.innerHTML = 'Turn off the lights !'
-            gsap.fromTo('#turnon', { opacity:0, y:30, duration:0.5}, {y:0, opacity:1})
+           
         } else {
             document.documentElement.classList.remove('dark');
             localStorage.setItem('color-theme', 'light');
             turnon.innerHTML = 'Turn on the lights !'
-            gsap.fromTo('#turnon', { opacity:0, y:30, duration:0.5}, {y:0, opacity:1})
-
         }
     } else {
         if (document.documentElement.classList.contains('dark')) {

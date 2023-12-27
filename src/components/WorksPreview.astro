@@ -1,26 +1,22 @@
 ---
 import type { CollectionEntry } from 'astro:content';
-
 interface Props {
 	project: CollectionEntry<'works'>;
 }
-const { data, slug } = Astro.props.project;
+const { data } = Astro.props.project;
 import { GoArrowUpRight } from "react-icons/go";
 import { FiArrowDownRight } from "react-icons/fi";
 
-
-
-
 ---
 
-<li class="relative group ease-in-out duration-150 border-none">
-<a class="place-self-center inline-block" id="contain" href={data.github} target="_blank">
+<li class="relative group ease-in-out duration-150 border-none"> 
+<a class="place-self-center inline-block" id="contain" href={data.github} target="_blank" rel="noopener noreferrer">
 	<img src={data.img} alt={data.img_alt || 'Z'} class="group-hover:brightness-[0.15] ease-in-out duration-150 brightness-[1]"/>
-	<div class="flex justify-between mt-5 items-center ease-in-out duration-150">
-		<span class="text-lg font-extrabold	 flex gap-2">{data.title} </span>
+	<div class="flex justify-between mt-5 items-center">
+		<div class="text-lg font-extrabold flex gap-2">{data.title}</div>
 		<div class="flex gap-2">
-			<a href={data.github} target="_blank" class="font-display text-lg flex dark:bg-black dark:text-white bg-white text-black rounded-xl px-5 py-1 outline-1 border-none hover:bg-transparent hover:outline hover:text-white hover:dark:text-black"> <span>github</span> <GoArrowUpRight /></a>
-			<a href={data.github} target="_blank" class="font-display text-lg flex dark:bg-black dark:text-white bg-white text-black rounded-xl px-5 py-1 outline-1 border-none hover:bg-transparent hover:outline hover:text-white hover:dark:text-black"> <span>live</span> <FiArrowDownRight /></a>
+			<a href={data.github} class="font-display text-lg flex dark:bg-black dark:text-white bg-white text-black rounded-xl px-5 py-1 outline-1 border-none hover:bg-transparent hover:outline hover:text-white hover:dark:text-black" target="_blank" rel="noopener noreferrer"> <span>github</span> <GoArrowUpRight /></a>
+			<a href={data.github} class="font-display text-lg flex dark:bg-black dark:text-white bg-white text-black rounded-xl px-5 py-1 outline-1 border-none hover:bg-transparent hover:outline hover:text-white hover:dark:text-black" target="_blank" rel="noopener noreferrer"> <span>live</span> <FiArrowDownRight /></a>
 		</div>
 	</div>
 </a>
@@ -35,8 +31,3 @@ margin-top: 150px;
 }	
 }
 </style>
-
-<script>
-	var tl = gsap.timeline()
-	tl.from('#tools', {duration: 0.2,stagger: 0.2, y:100, ease:'back'})
-</script>
