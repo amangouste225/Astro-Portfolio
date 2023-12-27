@@ -4,15 +4,24 @@ import type { CollectionEntry } from 'astro:content';
 interface Props {
 	project: CollectionEntry<'works'>;
 }
-
 const { data, slug } = Astro.props.project;
+import { GoArrowUpRight } from "react-icons/go";
+import { FiArrowDownRight } from "react-icons/fi";
+
+
+
+
 ---
 
-<li>
-<a class="place-self-center	inline-block max-w-sm md:max-w-md lg:max-w-lg" href={`/work/${slug}`}  >
-	<img src={data.img} alt={data.img_alt || 'Z'} class="mb-6" />
-	<div class="flex justify-between">
-	<span class="text-xl font-bold">{data.title}</span>
+<li class="relative group ease-in-out duration-150 border-none">
+<a class="place-self-center inline-block" id="contain" href={data.github} target="_blank">
+	<img src={data.img} alt={data.img_alt || 'Z'} class="group-hover:brightness-[0.15] ease-in-out duration-150 brightness-[1]"/>
+	<div class="flex justify-between mt-5 items-center ease-in-out duration-150">
+		<span class="text-lg font-extrabold	 flex gap-2">{data.title} </span>
+		<div class="flex gap-2">
+			<a href={data.github} target="_blank" class="font-display text-lg flex dark:bg-black dark:text-white bg-white text-black rounded-xl px-5 py-1 outline-1 border-none hover:bg-transparent hover:outline hover:text-white hover:dark:text-black"> <span>github</span> <GoArrowUpRight /></a>
+			<a href={data.github} target="_blank" class="font-display text-lg flex dark:bg-black dark:text-white bg-white text-black rounded-xl px-5 py-1 outline-1 border-none hover:bg-transparent hover:outline hover:text-white hover:dark:text-black"> <span>live</span> <FiArrowDownRight /></a>
+		</div>
 	</div>
 </a>
 
@@ -20,10 +29,14 @@ const { data, slug } = Astro.props.project;
 
 <style>
 
-@media (min-width: 1024px) {
+@media (min-width: 768px) {
 li:nth-child(2n){
 margin-top: 150px;
 }	
 }
-
 </style>
+
+<script>
+	var tl = gsap.timeline()
+	tl.from('#tools', {duration: 0.2,stagger: 0.2, y:100, ease:'back'})
+</script>
