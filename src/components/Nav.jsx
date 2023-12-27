@@ -2,7 +2,6 @@ import { BsMoonStarsFill } from "react-icons/bs";
 import { TbArrowsCross } from "react-icons/tb";
 import { motion } from "framer-motion";
 import { useState } from "react";
-import { useMediaQuery } from "../utils/useMediaQuery";
 
 const navLinks = [
   { id: 1, name: "Intro", link: "#" },
@@ -33,7 +32,6 @@ const itemMotion = {
 export const Nav = () => {
   const Logo = "a.svg";
   const [toggled, setToggled] = useState(false);
-  const matches = useMediaQuery("(min-width:768px)");
 
   function handleToggled() {
     setToggled((prev) => !prev);
