@@ -1,0 +1,16 @@
+/* FONT FAMILY */
+
+@font-face {
+  font-family: "AtiplaND";
+  src: url("/fonts/AtiplaND-Regular.woff2") format("woff2");
+  font-weight: normal;
+  font-style: normal;
+}
+
+.header_link:hover .header_link-icon svg {
+  stroke: yellow;
+}
+
+.header_link:hover .header__link-name {
+  color: yellow;
+}
