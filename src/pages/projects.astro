@@ -1,14 +1,54 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import Separator from "../components/Separator.tsx";
+
+// Get all entries from a collection.
+import { getCollection } from "astro:content";
+const project = await getCollection("project");
 ---
 
 <Layout title="Amangoua Ange | View all my Projects">
   <main
     class="dark:bg-neutral-900 h-full pb-20 dark:text-white text-neutral-900"
   >
-    <h2 class="tracking-tight text-balance lg:text-4xl text-2xl font-medium">
-      The ultimate all-in-one platform for managing your personal business
-      ventures
+    <h2
+      class="tracking-tight text-balance lg:text-4xl text-2xl font-medium dark:text-white text-neutral-900"
+    >
+      Projects that I made
     </h2>
+    <p
+      class="lg:text-lg text-base text-neutral-500 lg:mb-32 mb-10 my-1 font-normal"
+    >
+      I have a passion for building and creating software, and I am always
+      looking for new ways to improve my skills and knowledge
+    </p>
+    <Separator />
+
+    <h4
+      class="text-balance lg:text-2xl text-xl mt-10 font-bold dark:text-white text-neutral-900"
+    >
+      All projects
+    </h4>
+
+    <div class="grid mt-10 gap-20 grid-cols-2 grid-rows-2 divide-2">
+      {
+        project.map((post) => (
+          <a href={post.data.href}>
+            <div class="flex items-center gap-5">
+              <span class="w-12 overflow-hidden">
+                <img src={post.data.image} alt="image" />{" "}
+              </span>
+              <span>
+                <p>{post.data.title}</p>
+                <p class="text-neutral-500">{post.data.year}</p>
+              </span>
+            </div>
+            <p class="lg:text-lg text-base mt-5 text-neutral-500 font-normal">
+              {post.data.summary}
+            </p>
+          </a>
+        ))
+      }
+    </div>
   </main>
 </Layout>

@@ -137,7 +137,7 @@ const MainMenu = [
         />
       </svg>
     ),
-    href: "b",
+    href: "#",
   },
   {
     name: "Contact",
@@ -157,7 +157,7 @@ const MainMenu = [
         />
       </svg>
     ),
-    href: "b",
+    href: "#",
   },
   {
     name: "Socials",
@@ -177,7 +177,7 @@ const MainMenu = [
         />
       </svg>
     ),
-    href: "b",
+    href: "#",
   },
 ];
 
@@ -200,7 +200,7 @@ const Others = [
         />
       </svg>
     ),
-    href: "a",
+    href: "#",
   },
   {
     name: "Style guides",
@@ -220,7 +220,7 @@ const Others = [
         />
       </svg>
     ),
-    href: "a",
+    href: "#",
   },
 ];
 
@@ -241,7 +241,7 @@ export default function NavList() {
       <h4 className="text-md uppercase font-semibold my-4">System</h4>
       {Others.map((link, index) => (
         <li key={index} className="py-2">
-          <a href={link.name}>
+          <a href={link.href}>
             <div className="flex items-center gap-3">
               <span>{link.icon}</span>
               <span>{link.name}</span>

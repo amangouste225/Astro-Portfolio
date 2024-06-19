@@ -2,6 +2,10 @@
 import Layout from "../layouts/Layout.astro";
 import Button from "../components/Button.tsx";
 import Separator from "../components/Separator.tsx";
+
+import { getCollection } from "astro:content";
+const project = await getCollection("project");
+const blog = await getCollection("blog");
 ---
 
 <Layout title="Amangoua Ange | Portfolio by Astro JS.">
@@ -26,12 +30,12 @@ import Separator from "../components/Separator.tsx";
     >
       Hire me
     </h2>
-    <p class="lg:text-lg text-base text-neutral-500 lg:my-4 my-1 font-normal">
+    <p class="lg:text-lg text-base text-neutral-500 lg:my-2 font-normal">
       I am available for freelance work in the following areas:
     </p>
 
     <Separator />
-    <p class="lg:text-lg text-base text-neutral-500 lg:mt-20 font-normal mt-2">
+    <p class="lg:text-lg text-base text-neutral-500 lg:mt-18 font-normal mt-2">
       You can hire me to design your website, app, or any other digital product.
       I have a wide range of skills and experience in UI/UX design, including
       wireframing, prototyping, and visual design.
@@ -68,12 +72,35 @@ import Separator from "../components/Separator.tsx";
     >
       Projects that I made
     </h2>
-    <p class="lg:text-lg text-base text-neutral-500 lg:my-4 my-1 font-normal">
+    <p class="lg:text-lg text-base text-neutral-500 font-normal">
       I have a passion for building and creating software, and I am always
       looking for new ways to improve my skills and knowledge
     </p>
     <Separator />
-    <a href="/" class="my-3 float-right flex items-center gap-2">
+
+    <div class="grid mt-10 gap-20 lg:grid-cols-2 grid-cols-1 divide-2">
+      {
+        project.slice(0, 2).map((post) => (
+          <a href={post.data.href}>
+            <div class="flex items-center gap-5">
+              <span class="w-12 overflow-hidden">
+                <img src={post.data.image} alt="image" />{" "}
+              </span>
+              <span>
+                <p>{post.data.title}</p>
+                <p class="text-neutral-500">{post.data.year}</p>
+              </span>
+            </div>
+            <p class="lg:text-lg text-base mt-5 text-neutral-500 font-normal">
+              {post.data.summary}
+            </p>
+          </a>
+        ))
+      }
+    </div>
+    <Separator />
+
+    <a href="/projects" class="my-3 float-right flex items-center gap-2">
       See all projects
       <span>
         <svg
@@ -96,10 +123,35 @@ import Separator from "../components/Separator.tsx";
     >
       Latest Articles
     </h2>
-    <p class="lg:text-lg text-base text-neutral-500 lg:my-4 my-1 font-normal">
+    <p class="lg:text-lg text-base text-neutral-500 font-normal">
       Check out my newest blog posts and discover the latest insights and
       trends.
     </p>
+    <Separator />
+
+    <div class="grid mt-10 gap-20 lg:grid-cols-2 grid-cols-1 divide-2">
+      {
+        blog.slice(0, 2).map((post) => (
+          <a href={post.data.href}>
+            <div class="flex items-center gap-5">
+              <span class="w-10 h-10 rounded-lg overflow-hidden">
+                <img src={post.data.image} alt="image" />{" "}
+              </span>
+              <span>
+                <p>{post.data.title}</p>
+                <p class="text-neutral-500">
+                  {post.data.date.toUTCString().slice(0, 17)}
+                </p>
+              </span>
+            </div>
+            <p class="lg:text-lg text-base mt-5 text-neutral-500 font-normal">
+              {post.data.description}
+            </p>
+          </a>
+        ))
+      }
+    </div>
+
     <Separator />
     <a href="/" class="my-3 float-right flex items-center gap-2">
       Read all posts
