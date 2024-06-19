@@ -2,12 +2,19 @@
 import NavList from "../components/Header/NavList.tsx";
 import Logo from "../components/Header/Logo.tsx";
 import Button from "../components/Button.tsx";
+import { ViewTransitions } from "astro:transitions";
+import Separator from "../components/Separator.tsx";
 
 interface Props {
   title: string;
 }
 
 const { title } = Astro.props;
+const menu = [
+  { name: "Overview", href: "/" },
+  { name: "Social", href: "/" },
+  { name: "Licence", href: "/" },
+];
 ---
 
 <!doctype html>
@@ -18,8 +25,9 @@ const { title } = Astro.props;
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
-    <title>{title}</title>
     <link rel="stylesheet" href="/base.css" />
+    <title>{title}</title>
+    <ViewTransitions />
   </head>
   <body class="bg-neutral-100">
     <div class="h-full flex flex-row p-3">
@@ -62,42 +70,60 @@ const { title } = Astro.props;
 
       <!-- Main -->
       <section
-        class="w-full h-full overflow-y-scroll content inset-y-0 text-white lg:p-10 p-2 bg-neutral-900"
+        class="w-full h-full overflow-y-scroll content inset-y-0 text-white bg-neutral-900"
       >
         <div class="max-w-[850px] lg:m-6 lg:ml-28">
           <slot />
         </div>
+        <!-- Footer -->
+        <div class="border-t border-neutral-700 w-full">
+          <ul class="flex gap-10 lg:m-6 lg:ml-28 font-normal">
+            {
+              menu.map((link) => (
+                <li>
+                  <a href={link.href}>{link.name}</a>
+                </li>
+              ))
+            }
+          </ul>
+          <div class="mx-auto lg:mx-6 lg:ml-28 max-w-2xl">
+            <Separator />
+            <p class="lg:text-sm p-2 text-base text-neutral-500 font-normal">
+              © Copyright 2024. All rights reserved. Designed and built by
+              Michael Andreuzza.
+            </p>
+          </div>
+        </div>
       </section>
     </div>
+    <style is:global>
+      body {
+        margin: 0;
+        padding: 0;
+        line-height: inherit;
+        box-sizing: border-box;
+        transition: all ease-in-out 3s;
+        height: 100vh;
+        -webkit-font-smoothing: antialiased;
+        overscroll-behavior: none;
+        scrollbar-width: none;
+      }
+
+      html {
+        line-height: 1.5;
+        -webkit-text-size-adjust: 100%;
+        -moz-tab-size: 4;
+        -o-tab-size: 4;
+        tab-size: 4;
+        font-feature-settings: normal;
+        font-variation-settings: normal;
+        -webkit-tap-highlight-color: transparent;
+      }
+
+      * {
+        scrollbar-width: thin;
+        scrollbar-color: rgb(64, 64, 64) transparent;
+      }
+    </style>
   </body>
 </html>
-
-<style is:global>
-  body {
-    margin: 0;
-    padding: 0;
-    line-height: inherit;
-    box-sizing: border-box;
-    transition: all ease-in-out 3s;
-    height: 100vh;
-    -webkit-font-smoothing: antialiased;
-    overscroll-behavior: none;
-    scrollbar-width: none;
-  }
-
-  html {
-    line-height: 1.5;
-    -webkit-text-size-adjust: 100%;
-    -moz-tab-size: 4;
-    -o-tab-size: 4;
-    tab-size: 4;
-    font-feature-settings: normal;
-    font-variation-settings: normal;
-    -webkit-tap-highlight-color: transparent;
-  }
-
-  * {
-    scrollbar-width: thin;
-    scrollbar-color: rgb(64, 64, 64) transparent;
-  }
-</style>
