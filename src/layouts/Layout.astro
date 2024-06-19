@@ -72,37 +72,31 @@ const menu = [
       <section
         class="w-full h-full overflow-y-scroll content inset-y-0 text-white bg-neutral-900"
       >
-        <div class="max-w-[850px] lg:m-6 lg:ml-28">
+        <div class="max-w-[850px] lg:m-16 lg:ml-28 p-2">
           <slot />
         </div>
         <!-- Footer -->
-        <div class="border-t border-neutral-700 w-full">
-          <ul class="flex gap-10 lg:m-6 lg:ml-28 font-normal">
-            {
-              menu.map((link) => (
-                <li>
-                  <a href={link.href}>{link.name}</a>
-                </li>
-              ))
-            }
-          </ul>
-          <div class="mx-auto lg:mx-6 lg:ml-28 max-w-2xl">
-            <Separator />
-            <p class="lg:text-sm p-2 text-base text-neutral-500 font-normal">
-              © Copyright 2024. All rights reserved. Designed and built by
-              Michael Andreuzza.
-            </p>
+        <div class="border-t border-neutral-700 w-full"></div>
+        <div
+          class="mx-auto lg:m-5 lg:ml-28 max-w-4xl flex justify-between lg:flex-row flex-col items-center"
+        >
+          <p class="lg:text-sm p-2 text-base text-neutral-500 font-normal">
+            © Copyright 2024.Designed and built by Amangoua.
+          </p>
+          <div class="flex font-extralight text-sm text-yellow-200">
+            UTC +0 :
+            <span id="datetime" class="px-2" transition:persist> </span>
           </div>
         </div>
       </section>
     </div>
+
     <style is:global>
       body {
         margin: 0;
         padding: 0;
         line-height: inherit;
         box-sizing: border-box;
-        transition: all ease-in-out 3s;
         height: 100vh;
         -webkit-font-smoothing: antialiased;
         overscroll-behavior: none;
@@ -125,5 +119,23 @@ const menu = [
         scrollbar-color: rgb(64, 64, 64) transparent;
       }
     </style>
+    <script is:inline>
+      const updateDateTime = () => {
+        // create a new `Date` object
+        const now = new Date();
+
+        // get the current date and time as a string
+        const currentDateTime = now
+          .toLocaleString("fr-FR", {
+            timeZone: "UTC",
+            timeStyle: "long",
+          })
+          .slice(0, 8);
+        document.querySelector("#datetime").textContent = currentDateTime;
+      };
+
+      // call the `updateDateTime` function every second
+      setInterval(updateDateTime, 1000);
+    </script>
   </body>
 </html>
