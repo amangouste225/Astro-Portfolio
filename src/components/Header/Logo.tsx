@@ -1,6 +1,9 @@
 export default function Logo() {
   return (
-    <a href="/" className="flex items-center gap-2 mt-10 px-10 text-sm">
+    <a
+      href="/"
+      className="flex items-center gap-1 lg:mt-10 px-10 text-sm dark:text-neutral-50 text-neutral-900"
+    >
       <div className="w-9 h-9 rounded-full border border-neutral-700 bg-[url('/mike.jpg')] bg-center bg-contain "></div>
       <div className="flex flex-col gap-0">
         <span>Amangoua Ange-Thierry</span>

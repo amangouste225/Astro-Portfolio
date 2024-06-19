@@ -3,7 +3,7 @@ import NavList from "../components/Header/NavList.tsx";
 import Logo from "../components/Header/Logo.tsx";
 import Button from "../components/Button.tsx";
 import { ViewTransitions } from "astro:transitions";
-import Separator from "../components/Separator.tsx";
+import Toggle from "../components/Toggle.astro";
 
 interface Props {
   title: string;
@@ -18,7 +18,7 @@ const menu = [
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="en" class="dark">
   <head>
     <meta charset="UTF-8" />
     <meta name="description" content="Astro description" />
@@ -26,17 +26,24 @@ const menu = [
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
     <link rel="stylesheet" href="/base.css" />
+    <script type="module" src="/base.js"></script>
+    <script type="module" src="https://unpkg.com/lenis@1.1.3/dist/lenis.min.js"
+    ></script>
     <title>{title}</title>
-    <ViewTransitions />
+    <!-- <ViewTransitions /> -->
   </head>
-  <body class="bg-neutral-100">
-    <div class="h-full flex flex-row p-3">
+  <body class="dark:bg-neutral-100 bg-neutral-900">
+    <div class="h-full flex flex-col lg:flex-row p-3">
       <!-- Static sidebar for desktop -->
 
+      <!-- Toggle Button -->
+
       <div
-        class="z-50 hidden bg-white dark:bg-neutral-900 lg:flex flex-1 min-w-72 lg:flex-row md:inset-y-0 border-r border-neutral-700"
+        class="z-50 bg-white dark:bg-neutral-900 lg:flex flex-1 min-w-72 lg:flex-row md:inset-y-0 border-r border-neutral-700"
       >
-        <div class="text-white justify-around flex flex-col w-full">
+        <div
+          class="text-white lg:justify-around py-3 flex flex-col w-full border lg:bg-transparent bg-neutral-100 justify-center"
+        >
           <!-- Logo -->
           <Logo />
 
@@ -44,7 +51,7 @@ const menu = [
           <NavList />
 
           <!-- Download CV -->
-          <div class="border-t border-neutral-700 px-5">
+          <div class="border-t border-neutral-700 px-5 hidden lg:block">
             <Button>
               Download CV
               <span>
@@ -70,21 +77,25 @@ const menu = [
 
       <!-- Main -->
       <section
-        class="w-full h-full overflow-y-scroll content inset-y-0 text-white bg-neutral-900"
+        class="w-full h-full overflow-y-scroll content inset-y-0 text-white bg-white dark:bg-neutral-900"
       >
         <div class="max-w-[850px] lg:m-16 lg:ml-28 p-2">
           <slot />
         </div>
         <!-- Footer -->
         <div class="border-t border-neutral-700 w-full"></div>
+        <Toggle client:idle />
+
         <div
           class="mx-auto lg:m-5 lg:ml-28 max-w-4xl flex justify-between lg:flex-row flex-col items-center"
         >
           <p class="lg:text-sm p-2 text-base text-neutral-500 font-normal">
-            © Copyright 2024.Designed and built by Amangoua.
+            © Copyright 2024. Designed and built by Amangoua.
           </p>
-          <div class="flex font-extralight text-sm text-yellow-200">
-            UTC +0 :
+          <div
+            class="flex font-extralight text-sm dark:text-yellow-200 text-neutral-900"
+          >
+            UTC +00 :
             <span id="datetime" class="px-2" transition:persist> </span>
           </div>
         </div>
@@ -99,8 +110,8 @@ const menu = [
         box-sizing: border-box;
         height: 100vh;
         -webkit-font-smoothing: antialiased;
-        overscroll-behavior: none;
         scrollbar-width: none;
+        overflow: hidden;
       }
 
       html {
@@ -133,9 +144,26 @@ const menu = [
           .slice(0, 8);
         document.querySelector("#datetime").textContent = currentDateTime;
       };
-
       // call the `updateDateTime` function every second
       setInterval(updateDateTime, 1000);
+
+      let themeToggleDarkIcon = document.getElementById(
+        "theme-toggle-dark-icon"
+      );
+      let themeToggleLightIcon = document.getElementById(
+        "theme-toggle-light-icon"
+      );
+
+      // Change the icons inside the button based on previous settings
+      if (
+        localStorage.getItem("color-theme") === "dark" ||
+        (!("color-theme" in localStorage) &&
+          window.matchMedia("(prefers-color-scheme: dark)").matches)
+      ) {
+        themeToggleLightIcon.classList.remove("hidden");
+      } else {
+        themeToggleDarkIcon.classList.remove("hidden");
+      }
     </script>
   </body>
 </html>

@@ -226,7 +226,7 @@ const Others = [
 
 export default function NavList() {
   return (
-    <ul className="px-10">
+    <ul className="px-10 dark:text-neutral-50 text-neutral-900 hidden lg:block">
       <h4 className="text-md uppercase font-semibold my-4">Main</h4>
       {MainMenu.map((link, index) => (
         <li key={index} className="py-2">
