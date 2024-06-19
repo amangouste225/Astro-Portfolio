@@ -1,9 +1,122 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import Button from "../components/Button.tsx";
+import Separator from "../components/Separator.tsx";
 ---
 
-<Layout title="Amangoua | Portfolio by Astro JS.">
-  <main class="bg-red-500 h-screen">
-    <h2 class="text-3xl font-bold text-black">Welcome</h2>
+<Layout title="Amangoua Ange | Portfolio by Astro JS.">
+  <main class="bg-neutral-900 h-full">
+    <h2 class="tracking-tight text-balance lg:text-4xl text-2xl font-medium">
+      The ultimate all-in-one platform for managing your personal business
+      ventures
+    </h2>
+    <p class="lg:text-lg text-base text-neutral-500 lg:my-4 my-1 font-normal">
+      Beautifully designed in light and dark mode so you look good on every
+      screen, because you never know who's watching you
+    </p>
+    <div class="flex gap-2">
+      <Button type="medium" color="white"> Contact me </Button>
+      <Button type="medium"> Hire me </Button>
+    </div>
+
+    <h2
+      class="tracking-tight text-balance lg:text-4xl text-2xl mt-20 font-medium"
+    >
+      Hire me
+    </h2>
+    <p class="lg:text-lg text-base text-neutral-500 lg:my-4 my-1 font-normal">
+      I am available for freelance work in the following areas:
+    </p>
+
+    <Separator />
+    <p class="lg:text-lg text-base text-neutral-500 lg:mt-20 font-normal mt-2">
+      You can hire me to design your website, app, or any other digital product.
+      I have a wide range of skills and experience in UI/UX design, including
+      wireframing, prototyping, and visual design.
+    </p>
+    <ul class="lg:text-lg text-sm text-neutral-500 font-normal list-disc m-5">
+      <li>UI/UX Design</li>
+      <li>Full-Stack Development</li>
+      <li>Branding</li>
+      <li>Content Strategy</li>
+      <li>Branding</li>
+    </ul>
+    <Separator />
+    <a href="/" class="my-3 float-right flex items-center gap-2">
+      Learn more about my services
+      <span>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke-width="2"
+          stroke="currentColor"
+          class="size-4"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="m4.5 4.5 15 15m0 0V8.25m0 11.25H8.25"></path>
+        </svg>
+      </span>
+    </a>
+
+    <h2
+      class="tracking-tight text-balance lg:text-4xl text-2xl mt-32 font-medium"
+    >
+      Projects that I made
+    </h2>
+    <p class="lg:text-lg text-base text-neutral-500 lg:my-4 my-1 font-normal">
+      I have a passion for building and creating software, and I am always
+      looking for new ways to improve my skills and knowledge
+    </p>
+    <Separator />
+    <a href="/" class="my-3 float-right flex items-center gap-2">
+      See all projects
+      <span>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke-width="2"
+          stroke="currentColor"
+          class="size-4"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="m4.5 4.5 15 15m0 0V8.25m0 11.25H8.25"></path>
+        </svg>
+      </span>
+    </a>
+    <h2
+      class="tracking-tight text-balance lg:text-4xl text-2xl mt-32 font-medium"
+    >
+      Latest Articles
+    </h2>
+    <p class="lg:text-lg text-base text-neutral-500 lg:my-4 my-1 font-normal">
+      Check out my newest blog posts and discover the latest insights and
+      trends.
+    </p>
+    <Separator />
+    <a href="/" class="my-3 float-right flex items-center gap-2">
+      Read all posts
+
+      <span>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke-width="2"
+          stroke="currentColor"
+          class="size-4"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="m4.5 4.5 15 15m0 0V8.25m0 11.25H8.25"></path>
+        </svg>
+      </span>
+    </a>
   </main>
 </Layout>

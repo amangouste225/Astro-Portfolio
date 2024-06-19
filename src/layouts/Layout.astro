@@ -1,7 +1,7 @@
 ---
 import NavList from "../components/Header/NavList.tsx";
 import Logo from "../components/Header/Logo.tsx";
-import Button from "../components/Header/Button.tsx";
+import Button from "../components/Button.tsx";
 
 interface Props {
   title: string;
@@ -21,13 +21,14 @@ const { title } = Astro.props;
     <title>{title}</title>
     <link rel="stylesheet" href="/base.css" />
   </head>
-  <body>
-    <div class="min-h-[640px] flex flex-col">
+  <body class="bg-neutral-100">
+    <div class="h-full flex flex-row p-3">
+      <!-- Static sidebar for desktop -->
+
       <div
-        class="z-50 hidden bg-white dark:bg-neutral-900 lg:flex md:w-72 md:flex-col md:fixed md:inset-y-0"
+        class="z-50 hidden bg-white dark:bg-neutral-900 lg:flex flex-1 min-w-72 lg:flex-row md:inset-y-0 border-r border-neutral-700"
       >
-        <!-- Static sidebar for desktop -->
-        <div class="text-white my-2 h-full justify-between flex flex-col">
+        <div class="text-white justify-around flex flex-col w-full">
           <!-- Logo -->
           <Logo />
 
@@ -36,11 +37,37 @@ const { title } = Astro.props;
 
           <!-- Download CV -->
           <div class="border-t border-neutral-700 px-5">
-            <Button />
+            <Button>
+              Download CV
+              <span>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="1"
+                  stroke="currentColor"
+                  class="size-4"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5M16.5 12 12 16.5m0 0L7.5 12m4.5 4.5V3"
+                  ></path>
+                </svg>
+              </span>
+            </Button>
           </div>
         </div>
       </div>
-      <slot />
+
+      <!-- Main -->
+      <section
+        class="w-full h-full overflow-y-scroll content inset-y-0 text-white lg:p-10 p-2 bg-neutral-900"
+      >
+        <div class="max-w-[850px] lg:m-6 lg:ml-28">
+          <slot />
+        </div>
+      </section>
     </div>
   </body>
 </html>
@@ -52,6 +79,10 @@ const { title } = Astro.props;
     line-height: inherit;
     box-sizing: border-box;
     transition: all ease-in-out 3s;
+    height: 100vh;
+    -webkit-font-smoothing: antialiased;
+    overscroll-behavior: none;
+    scrollbar-width: none;
   }
 
   html {
@@ -63,5 +94,10 @@ const { title } = Astro.props;
     font-feature-settings: normal;
     font-variation-settings: normal;
     -webkit-tap-highlight-color: transparent;
+  }
+
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: rgb(64, 64, 64) transparent;
   }
 </style>

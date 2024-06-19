@@ -8,7 +8,7 @@ const MainMenu = [
         viewBox="0 0 24 24"
         stroke-width="1.5"
         stroke="currentColor"
-        className="size-5"
+        className="size-4"
       >
         <path
           stroke-linecap="round"
@@ -17,7 +17,7 @@ const MainMenu = [
         />
       </svg>
     ),
-    href: "a",
+    href: "/",
   },
   {
     name: "Projects",
@@ -28,7 +28,7 @@ const MainMenu = [
         viewBox="0 0 24 24"
         stroke-width="1.5"
         stroke="currentColor"
-        className="size-5"
+        className="size-4"
       >
         <path
           stroke-linecap="round"
@@ -37,7 +37,7 @@ const MainMenu = [
         />
       </svg>
     ),
-    href: "b",
+    href: "/projects",
   },
   {
     name: "Works",
@@ -48,7 +48,7 @@ const MainMenu = [
         viewBox="0 0 24 24"
         stroke-width="1.5"
         stroke="currentColor"
-        className="size-5"
+        className="size-4"
       >
         <path
           stroke-linecap="round"
@@ -57,7 +57,7 @@ const MainMenu = [
         />
       </svg>
     ),
-    href: "b",
+    href: "/work",
   },
   {
     name: "Blog",
@@ -68,7 +68,7 @@ const MainMenu = [
         viewBox="0 0 24 24"
         stroke-width="1.5"
         stroke="currentColor"
-        className="size-5"
+        className="size-4"
       >
         <path
           stroke-linecap="round"
@@ -77,7 +77,7 @@ const MainMenu = [
         />
       </svg>
     ),
-    href: "b",
+    href: "/blog",
   },
   {
     name: "Stack",
@@ -88,7 +88,7 @@ const MainMenu = [
         viewBox="0 0 24 24"
         stroke-width="1.5"
         stroke="currentColor"
-        className="size-5"
+        className="size-4"
       >
         <path
           stroke-linecap="round"
@@ -97,7 +97,7 @@ const MainMenu = [
         />
       </svg>
     ),
-    href: "b",
+    href: "/stack",
   },
   {
     name: "Now",
@@ -108,7 +108,7 @@ const MainMenu = [
         viewBox="0 0 24 24"
         stroke-width="1.5"
         stroke="currentColor"
-        className="size-5"
+        className="size-4"
       >
         <path
           stroke-linecap="round"
@@ -117,7 +117,7 @@ const MainMenu = [
         />
       </svg>
     ),
-    href: "b",
+    href: "/now",
   },
   {
     name: "Studio",
@@ -128,7 +128,7 @@ const MainMenu = [
         viewBox="0 0 24 24"
         stroke-width="1.5"
         stroke="currentColor"
-        className="size-5"
+        className="size-4"
       >
         <path
           stroke-linecap="round"
@@ -148,7 +148,7 @@ const MainMenu = [
         viewBox="0 0 24 24"
         stroke-width="1.5"
         stroke="currentColor"
-        className="size-5"
+        className="size-4"
       >
         <path
           stroke-linecap="round"
@@ -168,7 +168,7 @@ const MainMenu = [
         viewBox="0 0 24 24"
         stroke-width="1.5"
         stroke="currentColor"
-        className="size-5"
+        className="size-4"
       >
         <path
           stroke-linecap="round"
@@ -191,7 +191,7 @@ const Others = [
         viewBox="0 0 24 24"
         stroke-width="1.5"
         stroke="currentColor"
-        className="size-5"
+        className="size-4"
       >
         <path
           stroke-linecap="round"
@@ -211,7 +211,7 @@ const Others = [
         viewBox="0 0 24 24"
         stroke-width="1.5"
         stroke="currentColor"
-        className="size-5"
+        className="size-4"
       >
         <path
           stroke-linecap="round"
@@ -226,19 +226,19 @@ const Others = [
 
 export default function NavList() {
   return (
-    <ul className="px-5">
-      <h4 className="text-sm uppercase font-semibold my-4">Main</h4>
+    <ul className="px-10">
+      <h4 className="text-md uppercase font-semibold my-4">Main</h4>
       {MainMenu.map((link, index) => (
         <li key={index} className="py-2">
-          <a href={link.name} className="header_link">
-            <div className="flex items-center gap-3">
+          <a href={link.href} className="header_link">
+            <div className="flex items-center gap-2">
               <span className="header_link-icon">{link.icon}</span>
               <span className="header__link-name">{link.name}</span>
             </div>
           </a>
         </li>
       ))}
-      <h4 className="text-sm uppercase font-semibold my-4">System</h4>
+      <h4 className="text-md uppercase font-semibold my-4">System</h4>
       {Others.map((link, index) => (
         <li key={index} className="py-2">
           <a href={link.name}>

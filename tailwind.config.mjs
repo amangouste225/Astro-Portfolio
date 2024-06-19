@@ -7,7 +7,8 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        sans: ["AtiplaND", ...defaultTheme.fontFamily.sans],
+        sans: ["InterVariable", ...defaultTheme.fontFamily.sans],
+        default: ["AtiplaND", "sans - serif"],
       },
       colors: {
         vulcan: {
