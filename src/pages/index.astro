@@ -21,8 +21,8 @@ const blog = await getCollection("blog");
       screen, because you never know who's watching you
     </p>
     <div class="flex gap-2">
-      <Button type="medium" color="white"> Contact me </Button>
-      <Button type="medium"> Hire me </Button>
+      <Button type="medium" color="white" href="/contact"> Contact me </Button>
+      <Button type="medium" href="/hire-me"> Hire me </Button>
     </div>
 
     <h2
@@ -83,11 +83,13 @@ const blog = await getCollection("blog");
         project.slice(0, 2).map((post) => (
           <a href={post.data.href}>
             <div class="flex items-center gap-5">
-              <span class="w-12 overflow-hidden">
+              <span class="w-10 h-10 rounded-lg overflow-hidden">
                 <img src={post.data.image} alt="image" />{" "}
               </span>
               <span>
-                <p>{post.data.title}</p>
+                <p class="text-neutral-950 dark:text-neutral-100">
+                  {post.data.title}
+                </p>
                 <p class="text-neutral-500">{post.data.year}</p>
               </span>
             </div>
@@ -135,10 +137,12 @@ const blog = await getCollection("blog");
           <a href={post.data.href}>
             <div class="flex items-center gap-5">
               <span class="w-10 h-10 rounded-lg overflow-hidden">
-                <img src={post.data.image} alt="image" />{" "}
+                <img src={post.data.image} alt={post.data.title} />
               </span>
               <span>
-                <p>{post.data.title}</p>
+                <p class="text-neutral-950 dark:text-neutral-100">
+                  {post.data.title}
+                </p>
                 <p class="text-neutral-500">
                   {post.data.date.toUTCString().slice(0, 17)}
                 </p>
@@ -153,7 +157,7 @@ const blog = await getCollection("blog");
     </div>
 
     <Separator />
-    <a href="/" class="my-3 float-right flex items-center gap-2">
+    <a href="/blog" class="my-3 float-right flex items-center gap-2">
       Read all posts
 
       <span>
