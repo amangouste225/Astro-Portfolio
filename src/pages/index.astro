@@ -81,22 +81,38 @@ const blog = await getCollection("blog");
     <div class="grid mt-10 gap-20 lg:grid-cols-2 grid-cols-1 divide-2">
       {
         project.slice(0, 2).map((post) => (
-          <a href={post.data.href}>
-            <div class="flex items-center gap-5">
-              <span class="w-10 h-10 rounded-lg overflow-hidden">
-                <img src={post.data.image} alt="image" />{" "}
-              </span>
-              <span>
-                <p class="text-neutral-950 dark:text-neutral-100">
-                  {post.data.title}
-                </p>
-                <p class="text-neutral-500">{post.data.year}</p>
-              </span>
+          <>
+            <div class="flex flex-col">
+              <div class="flex flex-row gap-5">
+                <span class="w-10 h-10 rounded-lg border border-neutral-700 overflow-hidden">
+                  <img src={post.data.image} alt="image" />{" "}
+                </span>
+                <span>
+                  <p class="text-neutral-950 dark:text-neutral-100">
+                    {post.data.title}
+                  </p>
+                  <p class="text-neutral-500 font-ati">{post.data.year}</p>
+                </span>
+              </div>
+              <p class="lg:text-sm text-yellow-300 text-base mt-2 flex items-center gap-2  font-normal">
+                <a href={post.data.github}>github</a>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="1.5"
+                  stroke="currentColor"
+                  class="size-4"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"
+                  />
+                </svg>
+              </p>
             </div>
-            <p class="lg:text-lg text-base mt-5 text-neutral-500 font-normal">
-              {post.data.summary}
-            </p>
-          </a>
+          </>
         ))
       }
     </div>
@@ -134,24 +150,40 @@ const blog = await getCollection("blog");
     <div class="grid mt-10 gap-20 lg:grid-cols-2 grid-cols-1 divide-2">
       {
         blog.slice(0, 2).map((post) => (
-          <a href={post.data.href}>
-            <div class="flex items-center gap-5">
-              <span class="w-10 h-10 rounded-lg overflow-hidden">
-                <img src={post.data.image} alt={post.data.title} />
-              </span>
-              <span>
-                <p class="text-neutral-950 dark:text-neutral-100">
-                  {post.data.title}
-                </p>
-                <p class="text-neutral-500">
-                  {post.data.date.toUTCString().slice(0, 17)}
-                </p>
-              </span>
-            </div>
-            <p class="lg:text-lg text-base mt-5 text-neutral-500 font-normal">
-              {post.data.description}
+          <div class="flex flex-col">
+            <a href={post.data.href}>
+              <div class="flex items-center gap-5">
+                <span class="w-10 h-10 rounded-lg overflow-hidden border-neutral-700">
+                  <img src={post.data.image} alt={post.data.title} />
+                </span>
+                <span>
+                  <p class="text-neutral-950 dark:text-neutral-100">
+                    {post.data.title}
+                  </p>
+                  <p class="text-neutral-500 font-ati">
+                    {post.data.date.toUTCString().slice(0, 17)}
+                  </p>
+                </span>
+              </div>
+            </a>
+            <p class="lg:text-sm text-yellow-300 text-base mt-2 flex items-center gap-2  font-normal">
+              <a href={post.data.href}>read article</a>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="size-4"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"
+                />
+              </svg>
             </p>
-          </a>
+          </div>
         ))
       }
     </div>

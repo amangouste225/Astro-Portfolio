@@ -1,0 +1,161 @@
+---
+import PostLayout from "../../layouts/PostLayout.astro";
+import Separator from "../../components/Separator.tsx";
+---
+
+<PostLayout title="5 Essential Skills for Web Developers">
+  <main class="dark:bg-neutral-900 h-full flex relative">
+    <div class="max-w-[900px] xl:pl-28 pt-8 p-5 lg:mr-20">
+      <a
+        href="/"
+        class="mb-20 flex items-center gap-2 text-neutral-950 dark:text-neutral-100"
+      >
+        <span>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+            class="size-5"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18"></path>
+          </svg>
+        </span>
+        Back
+      </a>
+      <h2
+        class="tracking-tight text-balance lg:text-4xl text-2xl font-medium dark:text-white text-neutral-900"
+      >
+        5 Essential Skills for Web Developers
+      </h2>
+      <p class="lg:text-sm text-base mt-2 text-neutral-500 font-normal">
+        Written by: <span class="underline mx-2">Amangoua</span> | Mon Apr 01 2024
+      </p>
+
+      <Separator />
+
+      <p class="lg:text-lg text-base text-neutral-500 lg:my-4 my-1 font-normal">
+        Web development is a rapidly evolving field, and keeping up with the
+        latest trends and technologies can be challenging. In this post, we'll
+        explore five essential skills that every web developer should master,
+        from front-end frameworks to server-side languages. Whether you're just
+        starting out or looking to level up your skills, this guide has
+        everything you need to know.
+      </p>
+
+      <img
+        class="w-[700px] h-[350px] object-auto object-right-bottom rounded-md shadow-3xl my-10"
+        src="/skills.jpg"
+        alt="skills"
+      />
+
+      <h2
+        class="tracking-tight dark:text-white text-neutral-900 text-balance lg:text-4xl text-2xl font-medium"
+      >
+        5 Essential Skills for Web Developers
+      </h2>
+      <p class="lg:text-lg text-base text-neutral-500 lg:my-4 my-1 font-normal">
+        In the rapidly evolving field of web development, staying abreast of the
+        latest trends and technologies is paramount. Whether you’re a budding
+        developer or a seasoned pro, mastering a core set of skills is essential
+        to navigating the digital landscape successfully. Here’s a look at five
+        critical areas every web developer should focus on
+      </p>
+
+      <h3
+        id="1"
+        class="tracking-tight dark:text-white text-neutral-900 text-balance lg:text-2xl text-xl font-medium"
+      >
+        1. Proficiency in Front-End Technologies
+      </h3>
+      <ul class="list-disc ml-5">
+        <li>
+          <p
+            class="lg:text-sm text-base text-neutral-500 lg:my-4 my-1 font-normal"
+          >
+            <span class="text-white">HTML/CSS</span> : The building blocks of the
+            web. Understanding how to structure content and style it effectively
+            is crucial.
+          </p>
+        </li>
+        <li>
+          <p
+            class="lg:text-sm text-base text-neutral-500 lg:my-4 my-1 font-normal"
+          >
+            <span class="text-white">HTML/CSS </span>: The building blocks of
+            the web. Understanding how to structure content and style it
+            effectively is crucial.
+          </p>
+        </li>
+      </ul>
+      <h3
+        id="2"
+        class="tracking-tight dark:text-white text-neutral-900 text-balance lg:text-2xl text-xl font-medium"
+      >
+        2. Back-End Development Skills
+      </h3>
+      <ul class="list-disc ml-5">
+        <li>
+          <p
+            class="lg:text-sm text-base text-neutral-500 lg:my-4 my-1 font-normal"
+          >
+            <span class="text-white">Server-side Languages:</span> Proficiency in
+            languages such as Node.js, Python, Ruby, or PHP is essential for building
+            the logic behind web applications.
+          </p>
+        </li>
+        <li>
+          <p
+            class="lg:text-sm text-base text-neutral-500 lg:my-4 my-1 font-normal"
+          >
+            <span class="text-white">Databases </span>: Understanding how to
+            work with databases, both SQL (e.g., MySQL, PostgreSQL) and NoSQL
+            (e.g., MongoDB), is crucial for data management.
+          </p>
+        </li>
+      </ul>
+      <h3
+        id="3"
+        class="tracking-tight dark:text-white text-neutral-900 text-balance lg:text-2xl text-xl font-medium"
+      >
+        3. Version Control
+      </h3>
+      <ul class="list-disc ml-5">
+        <li>
+          <p
+            class="lg:text-sm text-base text-neutral-500 lg:my-4 my-1 font-normal"
+          >
+            <span class="text-white">Git:</span> A version control system that allows
+            you to track changes, revert to previous stages, and collaborate with
+            others. It’s an industry standard for a reason.
+          </p>
+        </li>
+      </ul>
+    </div>
+    <div
+      class="border-l border-neutral-700 p-20 hidden xl:block sticky top-0 h-full"
+    >
+      <ol class="list-decimal text-sm space-y-2 font-['AtiplaND']">
+        <li>
+          <a href="#1"> Proficiency in Front-End Technologies </a>
+        </li>
+        <li>
+          <a href="#2"> Back-End Development Skills </a>
+        </li>
+        <li>
+          <a href="#3"> Version Control </a>
+        </li>
+        <li>
+          <a href="#1"> Understanding of UX/UI Design Principles </a>
+        </li>
+        <li>
+          <a href="#1"> Continuous Learning and Adaptability </a>
+        </li>
+      </ol>
+    </div>
+  </main>
+</PostLayout>
